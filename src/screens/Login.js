@@ -73,9 +73,11 @@ const styles =  StyleSheet.create({
         marginRight:10,
         borderRadius:5,
         alignItems:"center"
+        
       },
       inputicon:{
-        fontSize: 22
+        fontSize: 22,
+        
       },
        loginbutton:{  
         fontSize:20,
