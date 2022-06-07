@@ -15,6 +15,7 @@ import {
   Text,
   useColorScheme,
   View,
+  LogBox, 
 } from 'react-native';
 
 import {
@@ -25,7 +26,9 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 import Router from "./src/router/index"
-
+LogBox.ignoreLogs(['Remote debugger']);
+import { NavigationContainer } from '@react-navigation/native';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 const App = () => {
   const isDarkMode = useColorScheme() === 'dark';
 
@@ -34,15 +37,15 @@ const App = () => {
   };
 
   return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <ScrollView
+      <SafeAreaProvider style={backgroundStyle}>
+        <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
+         {/* <ScrollView
         contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-       <Router />
-     
-      </ScrollView>
-    </SafeAreaView>
+        style={backgroundStyle}> */}
+          <Router />
+        {/* </ScrollView> */}
+        </SafeAreaProvider>
+       
   );
 };
 

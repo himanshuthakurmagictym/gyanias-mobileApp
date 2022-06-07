@@ -2,7 +2,7 @@ import React from 'react';
 import {Text, View, TouchableOpacity} from "react-native"
 
 
-const Login = ({navigation})=>{
+const Login = ()=>{
     return(
         <View>
         <Text>Welcome to Login Screen</Text>

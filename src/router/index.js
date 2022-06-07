@@ -1,20 +1,20 @@
 import React, {useEffect} from 'react';
 import { View, Text, SafeAreaView} from 'react-native'
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 import Welcomescreen from '../screens/Welcomescreen';
 import Login from '../screens/Login';
-const Stack = createNativeStackNavigator();
+import Registration from '../screens/Registration';
+const Stack = createStackNavigator();
 const Router = ()=>{
     return(
-         <NavigationContainer>
-                {/* <Welcomescreen /> */}
-            <Stack.Navigator>
-            <Stack.Screen name="Welcomescreens" component={Welcomescreen}/>
+        <NavigationContainer>
+            <Stack.Navigator >
+            <Stack.Screen name="Welcomescreen" component={Welcomescreen} options={{headerShown: false}}/>
             <Stack.Screen component={Login} name="Logins" />
+            <Stack.Screen component={Registration} name="Registration" />
             </Stack.Navigator>
-         </NavigationContainer> 
- 
+            </NavigationContainer>
     )
 }
 
