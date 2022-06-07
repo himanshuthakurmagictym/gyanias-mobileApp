@@ -1,25 +1,29 @@
 import React from 'react';
-import {Text, View, TouchableOpacity, StyleSheet, Image} from "react-native"
+import {Text, View, TouchableOpacity, StyleSheet, Image, ImageBackground} from "react-native"
 import  Icon  from 'react-native-vector-icons/AntDesign'
 
 const Welcomescreen = ({navigation})=>{
 
     return(
         <View style={styles.container}>
-         <View style={styles.mainsection}>       
+         <ImageBackground source={require("../../assets/img/welcomebackground.jpg")} resizeMode="cover" style={{flex:1}}>
+       
+         <View style={styles.mainsection}>      
         <Image source={require("../../assets/img/logo.png")} style={{width:200, height:200}}/>
         <Text style={styles.welcometext} >Welcome to GyanIAS</Text>
         </View>
-        <TouchableOpacity onPress={()=>navigation.navigate('Registration')} style={styles.registerbutton}>
-        <Text style={styles.registrationtexts}>Registation</Text>
-        <Icon name="rightcircle" size={22} color="#fff"/>
-        </TouchableOpacity>
+        <View style={styles.section}>   
+            <TouchableOpacity onPress={()=>navigation.navigate('Registration')} style={styles.registerbutton}>
+            <Text style={styles.registrationtexts}>Registation</Text>
+            <Icon name="rightcircle" size={25} color="#fff"/>
+            </TouchableOpacity>
 
-        <TouchableOpacity onPress={()=>navigation.navigate('Logins')} style={styles.loginbutton}>
-        <Text style={styles.registrationtexts}>Login</Text>
-        <Icon name="rightcircle" size={22} color="#fff"/>
-        </TouchableOpacity>
-       
+            <TouchableOpacity onPress={()=>navigation.navigate('Logins')} style={styles.loginbutton}>
+            <Text style={styles.registrationtexts}>Login</Text>
+            <Icon name="rightcircle" size={25} color="#fff"/>
+            </TouchableOpacity> 
+        </View>
+        </ImageBackground> 
         </View>
     )
 }
@@ -56,7 +60,8 @@ const styles = StyleSheet.create({
     container:{ 
         flex:1,
         justifyContent:'center',
-        alignItems:'center' 
+        alignItems:'center',
+        backgroundColor:"#fff"
     },
     welcometext:{
         color:'black',
@@ -76,6 +81,10 @@ const styles = StyleSheet.create({
         flex:1,
         justifyContent:"flex-end",
         alignItems:"center"
+    }, 
+    section:{
+        justifyContent:'flex-start',
+        alignItems:'center',
     }
 
 })
