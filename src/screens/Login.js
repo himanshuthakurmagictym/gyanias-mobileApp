@@ -1,36 +1,100 @@
-import React from 'react';
+import React, {useState, useContext} from 'react';
 import {Text, View, TouchableOpacity, TextInput, SafeAreaView, StyleSheet, Platform, ImageBackground} from "react-native"
 import  Icon  from 'react-native-vector-icons/Fontisto'
 import  Icons  from 'react-native-vector-icons/AntDesign'
 import LinearGradient from 'react-native-linear-gradient';
+import {useForm, Controller} from 'react-hook-form'
+import {AuthContext} from '../components/context'
+
 const Login = ({navigation})=>{
+    const [loading, setLoading] = useState(false);
+    const {signIn} = useContext(AuthContext) 
+
+    const {
+        control, 
+        handleSubmit,
+        reset, 
+        formState: {errors, isValid}
+      } = useForm({mode: 'onBlur'})
+
+     
+    const onSubmit = data => {
+        if (loading) {
+            setLoading(false);
+          }else{
+            setLoading(true); 
+            console.log(data)
+            // navigation.navigate('Home');
+            signIn(data)
+          }
+        
+       
+    };
+
     return(
         <SafeAreaView  style={styles.container}>
         <ImageBackground source={require("../../assets/img/welcomebackground.jpg")} resizeMode="cover" style={{flex:1,justifyContent:'center'}}>
         <View style={styles.contentContainer}>
+        
             <Text style={styles.heading}>Login</Text>
-            <View style={styles.inputContainer}>
-                <Icon name="email" style={styles.inputicon}/>
-                <TextInput style={styles.inputs}
-                placeholder="Your E-mail"
-                value=""
-                />
-                <Icons name="checkcircle" style={styles.inputicon}/>
-            </View>
-            <View style={styles.inputContainer}>
-            <Icon name="locked" style={styles.inputicon}/>
+           
+                <Controller        
+                    control={control}        
+                    name="email"   
+                    rules={{required: 'Username is required', minLength: {
+                        value: 4,
+                        message: 'Username should be minimum 3 characters long',
+                      },
+                      pattern:{value: /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/, message: 'Email is invalid'}
+                      ,}}
+                    render={({field: {onChange, value, onBlur}, fieldState: {error}}) => ( 
+                    <>
+                     <View style={styles.inputContainer}>
+                     <Icon name="email" style={styles.inputicon}/>
+                        <TextInput style={styles.inputs}
+                        placeholder="Your E-mail"
+                        value={value}
+                        onBlur={onBlur}              
+                        onChangeText={value => onChange(value)}   
+                        />
+                 <Icons name="checkcircle" style={styles.inputicon}/>
+                    </View>
+                    {error && (<Text style={styles.error}>{error.message || 'Error'}</Text>)}
+                     </> 
+                       
+                     )} />
+               
+               
+          
+           
+            <Controller control={control} name="password" 
+             rules={{required: 'password is required', minLength: {
+                value: 4,
+                message: 'password should be minimum 3 characters long',
+                     },}}
+                render={({field: {onChange, value, onBlur}, fieldState:{error}})=>( 
+                <>
+                 <View style={styles.inputContainer}>
+                 <Icon name="locked" style={styles.inputicon}/>
                 <TextInput style={styles.inputs}
                 placeholder="Your Password"
-                value=""
+                value={value}
+                onBlur={onBlur}              
+                onChangeText={value => onChange(value)}
                 />
-                 <Icons name="eye" style={styles.inputicon}/>
-            </View>
-            <TouchableOpacity  >
+                <Icons name="eye" style={styles.inputicon}/>
+                </View>
+                {error && (<Text style={styles.error}>{error.message || 'Error'}</Text>)}
+                </>
+                )} />
+                
+                 
+            <TouchableOpacity  onPress={handleSubmit(onSubmit)} >
             <LinearGradient colors={['#007bff', '#007bbb']} style={styles.loginbutton}>   
                 <Text style={styles.logintexts}>Submit</Text>
             </LinearGradient> 
             </TouchableOpacity>
-           
+        
         </View>
         </ImageBackground>
         </SafeAreaView>
@@ -101,5 +165,11 @@ const styles =  StyleSheet.create({
     contentContainer:{
        justifyContent:"center",
        
+    },
+    error:{
+        color: 'red', 
+        textAlign:'left',
+        paddingLeft:20,
+
     }
 })
