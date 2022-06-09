@@ -6,11 +6,11 @@ const Welcomescreen = ({navigation})=>{
 
     return(
         <View style={styles.container}>
-         <ImageBackground source={require("../../assets/img/welcomebackground.jpg")} resizeMode="cover" style={{flex:1}}>
+         <ImageBackground source={require("../../assets/img/as.png")} resizeMode="cover" style={{flex:1}}>
        
          <View style={styles.mainsection}>      
-        <Image source={require("../../assets/img/logo.png")} style={{width:200, height:200}}/>
-        <Text style={styles.welcometext} >Welcome to GyanIAS</Text>
+        {/* <Image source={require("../../assets/img/logo.png")} style={{width:200, height:200}}/> */}
+        {/* <Text style={styles.welcometext} >Welcome to GyanIAS</Text> */}
         </View>
         <View style={styles.section}>   
             <TouchableOpacity onPress={()=>navigation.navigate('Registration')} style={styles.registerbutton}>
@@ -54,7 +54,7 @@ const styles = StyleSheet.create({
         justifyContent:'space-between',
         borderRadius:5,
         width:'60%',
-        marginBottom:50,
+        marginBottom:30,
     
     },
     container:{ 
