@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
     registerbutton:{  
         fontSize:20,
         flext:1,
-        backgroundColor: '#007bff',
+        backgroundColor: '#000c82',
         color:'#fff',
         padding:10,
         flexDirection:'row',
@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
     loginbutton:{  
         fontSize:20,
         flext:1,
-        backgroundColor: '#007bff',
+        backgroundColor: '#000c82',
         color:'#fff',
         padding:10,
         flexDirection:'row',
