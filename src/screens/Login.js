@@ -1,5 +1,5 @@
 import React, {useState, useContext} from 'react';
-import {Text, View, TouchableOpacity, TextInput, SafeAreaView, StyleSheet, Platform, ImageBackground} from "react-native"
+import {Text, View, TouchableOpacity, TextInput, SafeAreaView, StyleSheet, Platform, ImageBackground, } from "react-native"
 import  Icon  from 'react-native-vector-icons/Fontisto'
 import  Icons  from 'react-native-vector-icons/AntDesign'
 import LinearGradient from 'react-native-linear-gradient';

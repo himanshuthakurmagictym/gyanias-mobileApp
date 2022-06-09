@@ -1,4 +1,4 @@
-import React, {useEffect, useState, useMemo} from 'react';
+import React, {useEffect, useState, useMemo, useReducer} from 'react';
 import { View, Text, SafeAreaView, ActivityIndicator, StyleSheet} from 'react-native'
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -7,34 +7,104 @@ import Login from '../screens/Login';
 import Home from '../screens/Home';
 import Registration from '../screens/Registration';
 import {AuthContext} from '../components/context'
+import AsyncStorage  from '@react-native-async-storage/async-storage'
 
 const Stack = createStackNavigator();
 const Router = ()=>{
    const [Isloading, setIsloading]= useState(true);
    const [usertoken, setUsertoken]= useState(null); 
 
+
+   const initialloginState = {
+       isloading:true,
+       email:null,
+       userToken:null
+   }
+   const loginReducer =  (prevState, action)=>{
+       switch(action.type){
+        case 'RETRIEVE_TOKEN':
+            return {
+             ...prevState,
+             userToken:action.token,
+             isloading:false
+            } ;
+           case 'LOGIN':
+           return {
+            ...prevState,
+            email: action.email,
+            userToken:action.token,
+            isloading:false
+           } ;
+           case 'LOGOUT':
+           return {
+            ...prevState,
+            email:null,
+            userToken:null,
+            isloading:false
+           };
+
+           case 'SIGNUP':
+           return {
+            ...prevState,
+            email: action.email,
+            userToken:action.token,
+            isloading:false
+           } ;
+
+       }
+
+   }
+
+   const [loginState, dispatch] = useReducer(loginReducer, initialloginState)
     const authcontext =  useMemo(()=>({
-        signIn:()=>{
-            setUsertoken("sdfs")
-            setIsloading(false);
+        signIn:async(foundUser)=>{
+        
+          const userToken = String(foundUser[0].email);
+          const email = foundUser[0].email;
+
+          if(email === 'user' && password === 'pass'){
+               try{
+                    await AsyncStorage.setItem('userToken',email);
+               }catch(e){
+                    console.log(e)
+               }
+
+          }
+          dispatch({ type: 'LOGIN', email:email, token:userToken});
         },
-        signOut: ()=>{
-            setUsertoken(null)
-            setIsloading(false);
+        signOut:async()=>{
+            try{
+                await AsyncStorage.removeItem('userToken');
+           }catch(e){
+                console.log(e)
+           }
+          dispatch({type: 'LOGOUT'});
         },
-        signUp: ()=>{
-            setUsertoken("sdfs")
-            setIsloading(false);
+        signUp:async(foundUser)=>{
+
+            try{
+                await AsyncStorage.setItem('userToken',foundUser.email);
+           }catch(e){
+                console.log(e)
+           }
+            dispatch({type: 'SIGNUP', email:email, token:foundUser.email});
         },
-    }))
+    }),[])
 
    useEffect(()=>{
-       setTimeout(()=>{
-        setIsloading(false)
+       setTimeout(async()=>{
+        let userToken;
+      userToken = null;
+        try{
+            userToken =  await AsyncStorage.getItem('userToken')  
+        }catch(e){
+            console.log(e)
+        } 
+         dispatch({ type: 'RETRIEVE_TOKEN', token:userToken})
        }, 1000)
    },[])
 
-   if( Isloading){
+   if( loginState.Isloading){
 return(
     <View style={styles.isloading}>
         <ActivityIndicator size="large"/>
@@ -44,7 +114,7 @@ return(
     return(
         <AuthContext.Provider value={authcontext}>
             <NavigationContainer>
-                {usertoken === null?
+                {loginState.usertoken === null?
                <Stack.Navigator >
                <Stack.Screen name="Welcomescreen" component={Welcomescreen} options={{headerShown: false}}/>
                <Stack.Screen component={Login} name="Logins" options={{ title: 'Home' }}/>
