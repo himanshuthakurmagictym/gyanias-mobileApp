@@ -1,11 +1,12 @@
-import React from 'react';
-import {Text, View, Touchable} from 'react-native';
-
-const Home = ()=>{
+import React, {useContext} from 'react';
+import {Text, View, Touchable, TouchableOpacity} from 'react-native';
+import {AuthContext} from '../components/context'
+const Home = ({navigation})=>{
+    const {signOut} = useContext(AuthContext) 
 
     return (
         <View>
-        <Text>Home Screen</Text>
+        <TouchableOpacity onPress={() => {signOut()}}><Text>Home Screen</Text></TouchableOpacity>
         </View>
 )
 

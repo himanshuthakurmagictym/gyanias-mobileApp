@@ -8,6 +8,7 @@ import {AuthContext} from '../components/context'
 
 const Login = ({navigation})=>{
     const [loading, setLoading] = useState(false);
+    const [showPassword, setShowpassword] = useState(true);
     const {signIn} = useContext(AuthContext) 
 
     const {
@@ -17,7 +18,10 @@ const Login = ({navigation})=>{
         formState: {errors, isValid}
       } = useForm({mode: 'onBlur'})
 
-     
+    const showpassword = ()=>{
+        showPassword?setShowpassword(false):setShowpassword(true)
+        
+    }
     const onSubmit = data => {
         if (loading) {
             setLoading(false);
@@ -67,11 +71,12 @@ const Login = ({navigation})=>{
                
           
            
-            <Controller control={control} name="password" 
+            <Controller control={control} name="password"
              rules={{required: 'password is required', minLength: {
                 value: 4,
                 message: 'password should be minimum 3 characters long',
                      },}}
+                     
                 render={({field: {onChange, value, onBlur}, fieldState:{error}})=>( 
                 <>
                  <View style={styles.inputContainer}>
@@ -79,10 +84,11 @@ const Login = ({navigation})=>{
                 <TextInput style={styles.inputs}
                 placeholder="Your Password"
                 value={value}
-                onBlur={onBlur}              
+                onBlur={onBlur}
+                secureTextEntry={showPassword}              
                 onChangeText={value => onChange(value)}
                 />
-                <Icons name="eye" style={styles.inputicon}/>
+                <Icons name="eye" style={styles.inputicon} onPress={()=>showpassword()}/>
                 </View>
                 {error && (<Text style={styles.error}>{error.message || 'Error'}</Text>)}
                 </>
@@ -128,7 +134,7 @@ const styles =  StyleSheet.create({
     }, 
     inputContainer: {
         height: 50,
-        backgroundColor: "#fff",
+        backgroundColor: "#f5fafc",
         flexDirection: 'row',
         paddingHorizontal: 15,
         borderWidth: 0.5,

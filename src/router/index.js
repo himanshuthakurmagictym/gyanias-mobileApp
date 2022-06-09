@@ -57,20 +57,20 @@ const Router = ()=>{
 
    const [loginState, dispatch] = useReducer(loginReducer, initialloginState)
     const authcontext =  useMemo(()=>({
-        signIn:async(foundUser)=>{
-        
-          const userToken = String(foundUser[0].email);
-          const email = foundUser[0].email;
+        signIn:async(foundUser)=>{   
+          const userToken = String(foundUser.email);
+          const email = foundUser.email;
+          const password = foundUser.password;
 
-          if(email === 'user' && password === 'pass'){
+          if(email === 'user@gmail.com' && password === 'pass'){
                try{
                     await AsyncStorage.setItem('userToken',email);
+                    dispatch({ type: 'LOGIN', email:email, token:userToken});
                }catch(e){
                     console.log(e)
                }
-
           }
-          dispatch({ type: 'LOGIN', email:email, token:userToken});
+         
         },
         signOut:async()=>{
             try{
@@ -96,7 +96,8 @@ const Router = ()=>{
         let userToken;
       userToken = null;
         try{
-            userToken =  await AsyncStorage.getItem('userToken')  
+            userToken =  await AsyncStorage.getItem('userToken');
+            console.log(userToken);  
         }catch(e){
             console.log(e)
         } 
@@ -105,24 +106,25 @@ const Router = ()=>{
    },[])
 
    if( loginState.Isloading){
-return(
-    <View style={styles.isloading}>
-        <ActivityIndicator size="large"/>
-    </View>
-)
-   }
+    return(
+        <View style={styles.isloading}>
+            <ActivityIndicator size="large"/>
+        </View>
+    )
+    }
+
     return(
         <AuthContext.Provider value={authcontext}>
             <NavigationContainer>
-                {loginState.usertoken === null?
-               <Stack.Navigator >
-               <Stack.Screen name="Welcomescreen" component={Welcomescreen} options={{headerShown: false}}/>
-               <Stack.Screen component={Login} name="Logins" options={{ title: 'Home' }}/>
-               <Stack.Screen component={Registration} name="Registration" options={{ title: 'Home' }}/>
-               <Stack.Screen component={Home} name="Home" options={{ title: 'Home' }}/>
-               </Stack.Navigator>
+                {loginState.userToken !== null?
+                <Home/>
                 :
-                ""
+                <Stack.Navigator >
+                <Stack.Screen name="Welcomescreen" component={Welcomescreen} options={{headerShown: false}}/>
+                <Stack.Screen component={Login} name="Logins" options={{ title: 'Home' }}/>
+                <Stack.Screen component={Registration} name="Registration" options={{ title: 'Home' }}/>
+                <Stack.Screen component={Home} name="Home" options={{ title: 'Home' }}/>
+                </Stack.Navigator>
                 }
            
             </NavigationContainer>
