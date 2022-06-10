@@ -10,7 +10,7 @@ const Tab = createBottomTabNavigator();
 const TabNavigation = ()=>{
     return(
         <Tab.Navigator screenOptions={{
-            tabBarStyle:{backgroundColor:"#000c82"}
+            tabBarStyle:{backgroundColor:"#000c82"}, headerTitleAlign:'center'
         }}>     
         <Tab.Screen name="Welcome" component={Home} options={{tabBarIcon: ({color, size})=>(
             <Icon name="home" size={24} color='#fff' />

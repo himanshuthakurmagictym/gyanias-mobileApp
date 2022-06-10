@@ -39,11 +39,7 @@ const App = () => {
   return (
       <SafeAreaProvider style={backgroundStyle}>
         <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-         {/* <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}> */}
           <Router />
-        {/* </ScrollView> */}
         </SafeAreaProvider>
        
   );

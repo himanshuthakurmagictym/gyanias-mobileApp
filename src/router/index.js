@@ -123,11 +123,10 @@ const Router = ()=>{
         <AuthContext.Provider value={authcontext}>
             <NavigationContainer>
                 {loginState.userToken !== null?
-                <DrawNavigation />
+                  <DrawNavigation />
                 :
-                <StackNavigation />
-                }
-           
+                 <StackNavigation />
+                }           
             </NavigationContainer>
         </AuthContext.Provider>
     )
