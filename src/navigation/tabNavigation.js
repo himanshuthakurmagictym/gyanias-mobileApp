@@ -4,17 +4,20 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Home from '../screens/Home';
 import Profile from '../screens/Profile';
 import Setting from '../screens/Setting';
+import LogoTitle from '../screens/LogoTitle';
 import  Icon  from 'react-native-vector-icons/FontAwesome'
 import  Icon2  from 'react-native-vector-icons/Fontisto'
 const Tab = createBottomTabNavigator();
-const TabNavigation = ()=>{
+const TabNavigation = ({ navigation, route, options })=>{
+    
     return(
+       
         <Tab.Navigator screenOptions={{
             tabBarStyle:{backgroundColor:"#000c82"}, headerTitleAlign:'center'
         }}>     
         <Tab.Screen name="Welcome" component={Home} options={{tabBarIcon: ({color, size})=>(
             <Icon name="home" size={24} color='#fff' />
-    )}} />   
+    ), headerTitle: props => <LogoTitle {...props} />}} />   
         <Tab.Screen name="Profile" component={Profile} options={{tabBarIcon: ({color, size})=>(
             <Icon2 name="person" size={24} color='#fff' />
     )}}/>
