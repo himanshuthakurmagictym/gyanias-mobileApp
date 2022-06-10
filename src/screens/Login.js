@@ -61,7 +61,7 @@ const Login = ({navigation})=>{
                         onBlur={onBlur}              
                         onChangeText={value => onChange(value)}   
                         />
-                 <Icons name="checkcircle" style={styles.inputicon}/>
+                 {/* <Icons name="checkcircle" style={styles.inputicon}/> */}
                     </View>
                     {error && (<Text style={styles.error}>{error.message || 'Error'}</Text>)}
                      </> 

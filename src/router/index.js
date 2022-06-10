@@ -2,14 +2,20 @@ import React, {useEffect, useState, useMemo, useReducer} from 'react';
 import { View, Text, SafeAreaView, ActivityIndicator, StyleSheet} from 'react-native'
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+// import { createDrawerNavigator } from '@react-navigation/drawer';
 import Welcomescreen from '../screens/Welcomescreen';
 import Login from '../screens/Login';
-import Home from '../screens/Home';
+
+import Profile from '../screens/Profile';
 import Registration from '../screens/Registration';
 import {AuthContext} from '../components/context'
 import AsyncStorage  from '@react-native-async-storage/async-storage'
+import TabNavigation from '../navigation/tabNavigation';
+import DrawNavigation from '../navigation/DrawNavigation';
+import StackNavigation from '../navigation/StackNavigation';
 
 const Stack = createStackNavigator();
+// const Drawer = createDrawerNavigator();
 const Router = ()=>{
    const [Isloading, setIsloading]= useState(true);
    const [usertoken, setUsertoken]= useState(null); 
@@ -117,14 +123,9 @@ const Router = ()=>{
         <AuthContext.Provider value={authcontext}>
             <NavigationContainer>
                 {loginState.userToken !== null?
-                <Home/>
+                <DrawNavigation />
                 :
-                <Stack.Navigator >
-                <Stack.Screen name="Welcomescreen" component={Welcomescreen} options={{headerShown: false}}/>
-                <Stack.Screen component={Login} name="Logins" options={{ title: 'Home' }}/>
-                <Stack.Screen component={Registration} name="Registration" options={{ title: 'Home' }}/>
-                <Stack.Screen component={Home} name="Home" options={{ title: 'Home' }}/>
-                </Stack.Navigator>
+                <StackNavigation />
                 }
            
             </NavigationContainer>
