@@ -6,6 +6,9 @@ import LinearGradient from 'react-native-linear-gradient';
 import {useForm, Controller} from 'react-hook-form'
 import {AuthContext} from '../components/context'
 
+
+
+
 const Login = ({navigation})=>{
     const [loading, setLoading] = useState(false);
     const [showPassword, setShowpassword] = useState(true);
@@ -39,7 +42,7 @@ const Login = ({navigation})=>{
         <SafeAreaView  style={styles.container}>
         <ImageBackground source={require("../../assets/img/welcomebackground.jpg")} resizeMode="cover" style={{flex:1,justifyContent:'center'}}>
         <View style={styles.contentContainer}>
-        
+      
             <Text style={styles.heading}>Login</Text>
            
                 <Controller        
@@ -177,5 +180,6 @@ const styles =  StyleSheet.create({
         textAlign:'left',
         paddingLeft:20,
 
-    }
+    },
+   
 })

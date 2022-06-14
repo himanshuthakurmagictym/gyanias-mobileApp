@@ -1,11 +1,11 @@
 import React, {useEffect, useState, useMemo, useReducer} from 'react';
-import { View, Text, SafeAreaView, ActivityIndicator, StyleSheet} from 'react-native'
+import { View, Text, SafeAreaView, ActivityIndicator, StyleSheet, Alert} from 'react-native'
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 // import { createDrawerNavigator } from '@react-navigation/drawer';
 import Welcomescreen from '../screens/Welcomescreen';
 import Login from '../screens/Login';
-
+import Toast from 'react-native-toast-message';
 import Profile from '../screens/Profile';
 import Registration from '../screens/Registration';
 import {AuthContext} from '../components/context'
@@ -19,7 +19,7 @@ const Stack = createStackNavigator();
 const Router = ()=>{
    const [Isloading, setIsloading]= useState(true);
    const [usertoken, setUsertoken]= useState(null); 
-
+   
 
    const initialloginState = {
        isloading:true,
@@ -61,7 +61,13 @@ const Router = ()=>{
 
    }
 
-   const [loginState, dispatch] = useReducer(loginReducer, initialloginState)
+  
+
+   const [loginState, dispatch] = useReducer(loginReducer, initialloginState);
+
+   
+
+
     const authcontext =  useMemo(()=>({
         signIn:async(foundUser)=>{   
           const userToken = String(foundUser.email);
@@ -72,9 +78,21 @@ const Router = ()=>{
                try{
                     await AsyncStorage.setItem('userToken',email);
                     dispatch({ type: 'LOGIN', email:email, token:userToken});
+                    Alert.alert('Login Successfully');
                }catch(e){
                     console.log(e)
                }
+          }else{
+            
+            Alert.alert(
+                "Login Details",
+                "Your Details are Incorrect",
+                [
+                  { text: "OK", onPress: () => console.log("OK Pressed"),  style: "cancel" }
+                ])
+           
+           
+          
           }
          
         },
@@ -96,6 +114,8 @@ const Router = ()=>{
             dispatch({type: 'SIGNUP', email:email, token:foundUser.email});
         },
     }),[])
+
+   
 
    useEffect(()=>{
        setTimeout(async()=>{
