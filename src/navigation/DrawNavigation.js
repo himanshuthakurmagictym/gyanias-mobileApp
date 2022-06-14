@@ -25,9 +25,7 @@ const DrawNavigation = ()=>{
             <Drawer.Screen  name="Profile" component={Profile} options={{ drawerIcon:({color})=>(
                     <Icon2 name="person" size={20} color="black"/>   
             ), headerTitle: props => <LogoTitle {...props} />}}/>
-            <Drawer.Screen  name="signout" component={Profile}  options={{ drawerIcon:({color})=>(
-                    <Icon2 name="person" size={20} color="black"/>   
-            ), headerTitle: props => <LogoTitle {...props} />}}/>
+           
            
         </Drawer.Navigator>
     )

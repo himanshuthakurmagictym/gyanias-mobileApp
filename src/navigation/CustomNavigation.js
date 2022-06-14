@@ -1,7 +1,7 @@
 import React, {useContext} from 'react'
-import {View, Text, ImageBackground, Image} from 'react-native'
+import {View, Text, ImageBackground, Image, TouchableOpacity} from 'react-native'
 import { DrawerContentScrollView, DrawerItemList, DrawerItem } from '@react-navigation/drawer';
-import  Icon  from 'react-native-vector-icons/FontAwesome'
+import  Icon  from 'react-native-vector-icons/MaterialCommunityIcons'
 import  Icon2  from 'react-native-vector-icons/Fontisto'
 import LinearGradient from 'react-native-linear-gradient';
 import {AuthContext} from '../components/context';
@@ -23,8 +23,11 @@ const CustomNavigation = (props)=>{
           <DrawerItemList {...props}/>
           {/* <DrawerItem label="Logout" onPress={() => signOut()}  /> */}
       </DrawerContentScrollView>
-      <View style={{flex:1, }}>
-       
+      <View style={{flex:1, justifyContent:'flex-end'}}>
+          <TouchableOpacity onPress={()=>{signOut()}} style={{flexDirection:"row", paddingLeft:20, paddingBottom:20, alignItems:"center"}} >
+            <Icon name="logout" size={24} color='black' />
+            <Text>Logout</Text>
+          </TouchableOpacity>
       </View>
       </View>
     )
