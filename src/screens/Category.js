@@ -1,16 +1,15 @@
 import React from  'react';
 import {Text, View} from 'react-native'
 
- const Profile = ()=>{
+ const Category = ()=>{
     return(
-        <>
+        <> 
         <View>
-           <Text>Hello profile</Text> 
-           
+           <Text>Hello Category</Text> 
         </View>
-       
+        
         </> 
     )
 }
 
-export default Profile;
+export default Category;
