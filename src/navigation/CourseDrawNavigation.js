@@ -18,14 +18,15 @@ import { getFocusedRouteNameFromRoute } from '@react-navigation/native';
 const Drawer = createDrawerNavigator();
  
 
-const DrawNavigation = ({ navigation, route, options })=>{
+const CourseDrawNavigation = ({ navigation, route, options })=>{
     const {signOut} = useContext(AuthContext);
 
     return(
-        <Drawer.Navigator drawerContent={props=><CustomDrawer {...props}/>}
+        <Drawer.Navigator  drawerContent={props=><CustomDrawer {...props}/>}
         screenOptions={{headerTitleAlign:'center' , headerStyle: { backgroundColor: 'white', 
         }}}>
-            <Drawer.Screen  name="Home" component={TabNavigation} options={{headerShown: true, drawerIcon:({color})=>(
+
+            <Drawer.Screen  name="Home" component={Home} options={{headerShown: true, drawerIcon:({color})=>(
                     <Icon name="home" size={20} color="black"/>   
             ),title:"home" , headerTitle: props => <LogoTitle {...props} /> }}/>
 
@@ -57,4 +58,4 @@ const DrawNavigation = ({ navigation, route, options })=>{
     )
 }
 
-export default DrawNavigation;
+export default CourseDrawNavigation;

@@ -9,26 +9,25 @@ import LogoTitle from '../screens/LogoTitle';
 import  Icon  from 'react-native-vector-icons/FontAwesome'
 import  Icon2  from 'react-native-vector-icons/Fontisto'
 import  Icon3  from 'react-native-vector-icons/AntDesign'
-import Category from '../screens/Category';
+import Course from '../screens/Course';
 import { getFocusedRouteNameFromRoute } from '@react-navigation/native';
+import HomeStack from './HomeStack';
+
 const Tab = createBottomTabNavigator();
 const TabNavigation = ({ navigation, route, options })=>{
 
    
     function getHeaderTitle(route) {
+        console.log(route)
         const routeName = getFocusedRouteNameFromRoute(route) ?? 'Home';
         switch (routeName) {
-          case 'Category':
-            return 'Category';
-          case 'UserBookNewEvent':
-            return 'Book Class';
-          case 'UserProfilePage':
-            return 'Profile';
+          case 'Course':
+            return 'Course';
         }
       } 
 
     React.useLayoutEffect(() => {
-    navigation?.setOptions({  title: getHeaderTitle(route)  });
+    navigation.setOptions({  title: getHeaderTitle(route)  });
   }, [navigation, route]);
   
     return(
@@ -40,10 +39,11 @@ const TabNavigation = ({ navigation, route, options })=>{
             <Icon name="home" size={24} color='#fff' />
             ), headerTitle: props => <LogoTitle {...props} />, headerShown: false,})} 
         />   
-        <Tab.Screen name="Category" component={Category} options={{tabBarIcon: ({color, size})=>(
+        <Tab.Screen name="Course" component={Course} options={{tabBarIcon: ({color, size})=>(
             <Icon2 name="person" size={24} color='#fff' />
         ), headerTitle: props => <LogoTitle {...props} />, headerShown: false}}/>
-        <Tab.Screen name="toggleDrawer"  component={Setting} options={{tabBarIcon: ({color, size})=>(
+        
+        <Tab.Screen name="toggleDrawer"  component={Course} options={{tabBarIcon: ({color, size})=>(
             <Icon3 name="menufold" size={24} color='#fff' />
          ), headerTitle: props => <LogoTitle {...props} />, tabBarButton: props => (
             <TouchableOpacity {...props} onPress={() => navigation.toggleDrawer()} />

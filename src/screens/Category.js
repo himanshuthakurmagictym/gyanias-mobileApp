@@ -1,11 +1,12 @@
 import React from  'react';
-import {Text, View} from 'react-native'
+import {Text, View, TouchableOpacity} from 'react-native'
 
- const Category = ()=>{
+ const Category = ({navigation})=>{
     return(
         <> 
         <View>
            <Text>Hello Category</Text> 
+         
         </View>
         
         </> 

@@ -6,7 +6,10 @@ const Home = ({navigation})=>{
     const {signOut} = useContext(AuthContext) 
 
     return (
-        <TouchableOpacity onPress={() => {signOut()}}><Text>Singout</Text></TouchableOpacity>        
+        <>
+        <TouchableOpacity onPress={() => {signOut()}}><Text>Singout</Text></TouchableOpacity>  
+         <TouchableOpacity onPress={() => {navigation.navigate('Course')}}><Text>Category</Text></TouchableOpacity>   
+         </>     
 )
 
 }
