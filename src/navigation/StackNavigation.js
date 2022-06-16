@@ -17,7 +17,7 @@ const StackNavigation = ()=>{
                 <Stack.Screen name="Welcomescreen" component={Welcomescreen} options={{headerShown: false}}/>
                 <Stack.Screen component={Login} name="Logins" options={{ title: 'Home' }}/>
                 <Stack.Screen component={Registration} name="Registration" options={{ title: 'Home' }}/>
-                <Stack.Screen component={TabNavigation} name="Home" options={{ title: 'Home' }}/>
+                {/* <Stack.Screen component={TabNavigation} name="Home" options={{ title: 'Home' }}/> */}
         </Stack.Navigator>
     )
 }
