@@ -22,9 +22,9 @@ const DrawNavigation = ({ navigation, route, options })=>{
      
     return(
         <Drawer.Navigator initialRouteName="Home" drawerContent={props=><CustomDrawer {...props}/>}
-        screenOptions={{unmountOnBlur: true, headerTitleAlign:'center' , headerStyle: { backgroundColor: 'white', 
+        screenOptions={{headerTitleAlign:'center' , headerStyle: { backgroundColor: 'white', 
         }}}>
-            <Drawer.Screen  name="Home" component={TabNavigation} options={{headerShown: false, drawerIcon:({color})=>(
+            <Drawer.Screen  name="Home" component={TabNavigation} options={{unmountOnBlur: true,headerShown: false, drawerIcon:({color})=>(
                     <Icon name="home" size={20} color="black"/>   
             ),title:"home" , headerTitle: props => <LogoTitle {...props} />,  }}/>
 

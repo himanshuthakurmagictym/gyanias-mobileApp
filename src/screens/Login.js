@@ -44,7 +44,7 @@ const Login = ({navigation})=>{
         <View style={styles.contentContainer}>
       
             <Text style={styles.heading}>Login</Text>
-           
+                  
                 <Controller        
                     control={control}        
                     name="email"   
@@ -56,10 +56,12 @@ const Login = ({navigation})=>{
                       ,}}
                     render={({field: {onChange, value, onBlur}, fieldState: {error}}) => ( 
                     <>
+              
                      <View style={styles.inputContainer}>
                      <Icon name="email" style={styles.inputicon}/>
                         <TextInput style={styles.inputs}
                         placeholder="Your E-mail"
+                        placeholderTextColor="#000" 
                         value={value}
                         onBlur={onBlur}              
                         onChangeText={value => onChange(value)}   
@@ -86,6 +88,7 @@ const Login = ({navigation})=>{
                  <Icon name="locked" style={styles.inputicon}/>
                 <TextInput style={styles.inputs}
                 placeholder="Your Password"
+                placeholderTextColor="#000" 
                 value={value}
                 onBlur={onBlur}
                 secureTextEntry={showPassword}              

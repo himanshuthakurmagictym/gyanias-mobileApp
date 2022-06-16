@@ -57,6 +57,7 @@ const Registration = ({navigation})=>{
                      <Icon name="person" style={styles.inputicon}/>
                         <TextInput style={styles.inputs}
                         placeholder="Your Full Name"
+                        placeholderTextColor="#000" 
                         value={value}
                         onBlur={onBlur}              
                         onChangeText={value => onChange(value)}   
@@ -84,6 +85,7 @@ const Registration = ({navigation})=>{
                      <Icon name="male" style={styles.inputicon}/>
                         <TextInput style={styles.inputs}
                         placeholder="Your Username"
+                        placeholderTextColor="#000" 
                         value={value}
                         onBlur={onBlur}              
                         onChangeText={value => onChange(value)}   
@@ -111,6 +113,7 @@ const Registration = ({navigation})=>{
                      <Icon name="email" style={styles.inputicon}/>
                         <TextInput style={styles.inputs}
                         placeholder="Your E-mail"
+                        placeholderTextColor="#000" 
                         value={value}
                         onBlur={onBlur}              
                         onChangeText={value => onChange(value)}   
@@ -137,6 +140,7 @@ const Registration = ({navigation})=>{
                      <Icon name="phone" style={styles.inputicon}/>
                         <TextInput style={styles.inputs}
                         placeholder="Your Phone"
+                        placeholderTextColor="#000" 
                         value={value}
                         keywordType='numeric'
                         onBlur={onBlur}              
@@ -164,6 +168,7 @@ const Registration = ({navigation})=>{
                  <Icon name="locked" style={styles.inputicon}/>
                 <TextInput style={styles.inputs}
                 placeholder="Your Password"
+                placeholderTextColor="#000" 
                 value={value}
                 onBlur={onBlur}
                 secureTextEntry={showPassword}              
