@@ -1,6 +1,7 @@
 import React, {useContext} from 'react'
 import { NavigationContainer } from '@react-navigation/native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
+import {Text, View, Image, StyleSheet, TouchableOpacity} from 'react-native'
 import Home from '../screens/Home';
 import Profile from '../screens/Profile';
 import Category from '../screens/Category';
@@ -22,36 +23,50 @@ const DrawNavigation = ({ navigation, route, options })=>{
     const {signOut} = useContext(AuthContext);
 
     return(
-        <Drawer.Navigator drawerContent={props=><CustomDrawer {...props}/>}
+        <Drawer.Navigator initialRouteName="Home" drawerContent={props=><CustomDrawer {...props}/>}
         screenOptions={{headerTitleAlign:'center' , headerStyle: { backgroundColor: 'white', 
         }}}>
-            <Drawer.Screen  name="Home" component={TabNavigation} options={{headerShown: true, drawerIcon:({color})=>(
+            <Drawer.Screen  name="Home" component={TabNavigation} options={{headerShown: false, drawerIcon:({color})=>(
                     <Icon name="home" size={20} color="black"/>   
-            ),title:"home" , headerTitle: props => <LogoTitle {...props} /> }}/>
+            ),title:"home" , headerTitle: props => <LogoTitle {...props} />,  headerRight:()=>(<TouchableOpacity onPress={()=>{navigation.toggleDrawer()}}  >
+            <Icon name="bell" color='#007bff' size={24}  style={{paddingRight:15}}/>
+            </TouchableOpacity>), }}/>
 
             <Drawer.Screen  name="Profile" component={Profile} options={({route}) =>({headerShown: true, drawerIcon:({color})=>(
                     <Icon2 name="person" size={20} color="black"/>   
-            ), headerTitle: props => <LogoTitle {...props} />})}/>
+            ), headerTitle: props => <LogoTitle {...props} />,  headerRight:()=>(<TouchableOpacity onPress={()=>{navigation.toggleDrawer()}}  >
+            <Icon name="bell" color='#007bff' size={24}  style={{paddingRight:15}}/>
+            </TouchableOpacity>),})}/>
 
             <Drawer.Screen  name="Category" component={Category} options={{headerShown: true, drawerIcon:({color})=>(
                     <Icon2 name="person" size={20} color="black"/>   
-            ), headerTitle: props => <LogoTitle {...props} />}}/>
+            ), headerTitle: props => <LogoTitle {...props} />,  headerRight:()=>(<TouchableOpacity onPress={()=>{navigation.toggleDrawer()}}  >
+            <Icon name="bell" color='#007bff' size={24}  style={{paddingRight:15}}/>
+            </TouchableOpacity>),}}/>
 
             <Drawer.Screen  name="Course" component={Course} options={{headerShown: true, drawerIcon:({color})=>(
                     <Icon2 name="person" size={20} color="black"/>   
-            ), headerTitle: props => <LogoTitle {...props} />}}/>
+            ), headerTitle: props => <LogoTitle {...props} />,  headerRight:()=>(<TouchableOpacity onPress={()=>{navigation.toggleDrawer()}}  >
+            <Icon name="bell" color='#007bff' size={24}  style={{paddingRight:15}}/>
+            </TouchableOpacity>),}}/>
 
             <Drawer.Screen  name="Notes" component={Notes} options={{headerShown: true, drawerIcon:({color})=>(
                     <Icon2 name="person" size={20} color="black"/>   
-            ), headerTitle: props => <LogoTitle {...props} />}}/>
+            ), headerTitle: props => <LogoTitle {...props} />,  headerRight:()=>(<TouchableOpacity onPress={()=>{navigation.toggleDrawer()}}  >
+            <Icon name="bell" color='#007bff' size={24}  style={{paddingRight:15}}/>
+            </TouchableOpacity>),}}/>
 
             <Drawer.Screen  name="Syllabus" component={Syllabus} options={{headerShown: true, drawerIcon:({color})=>(
                     <Icon2 name="person" size={20} color="black"/>   
-            ), headerTitle: props => <LogoTitle {...props} />}}/>
+            ), headerTitle: props => <LogoTitle {...props} />,  headerRight:()=>(<TouchableOpacity onPress={()=>{navigation.toggleDrawer()}}  >
+            <Icon name="bell" color='#007bff' size={24}  style={{paddingRight:15}}/>
+            </TouchableOpacity>),}}/>
 
             <Drawer.Screen  name="Setting" component={Setting} options={{headerShown: true, drawerIcon:({color})=>(
                     <Icon2 name="person" size={20} color="black"/>   
-            ), headerTitle: props => <LogoTitle {...props} />}}/>
+            ), headerTitle: props => <LogoTitle {...props} />,  headerRight:()=>(<TouchableOpacity onPress={()=>{navigation.toggleDrawer()}}  >
+            <Icon name="bell" color='#007bff' size={24}  style={{paddingRight:15}}/>
+            </TouchableOpacity>),}}/>
 
         </Drawer.Navigator>
     )

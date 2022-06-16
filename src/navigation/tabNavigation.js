@@ -35,18 +35,21 @@ const TabNavigation = ({ navigation, route, options })=>{
        
         <Tab.Navigator  screenOptions={{
             tabBarStyle:{backgroundColor:"#007bff"}, tabBarActiveTintColor:'white', tabBarInactiveTintColor:'white', headerTitleAlign:'center', tabBarShowLabel:false,
-           
         }}>     
         <Tab.Screen name="home" component={Home} options={({route}) =>({tabBarIcon: ({color, size})=>(
             <Icon name="home" size={24} color='#fff' />
             ), headerTitle: props => <LogoTitle {...props} />, headerShown: true, headerLeft:()=>(  <TouchableOpacity onPress={()=>{navigation.toggleDrawer()}}  >
             <Icon4 name="menu" size={24}  style={{paddingLeft:15}}/>
-            </TouchableOpacity>),  })} 
+            </TouchableOpacity>),  headerRight:()=>(<TouchableOpacity onPress={()=>{navigation.toggleDrawer()}}  >
+            <Icon name="bell" color='#007bff' size={24}  style={{paddingRight:15}}/>
+            </TouchableOpacity>),})} 
         />   
         <Tab.Screen name="Course" component={Course} options={{tabBarIcon: ({color, size})=>(
             <Icon2 name="person" size={24} color='#fff' />
-        ), headerTitle: props => <LogoTitle {...props} />, headerShown: true,  headerLeft:()=>(<TouchableOpacity onPress={()=>{navigation.toggleDrawer()}}  >
+        ), headerTitle: props => <LogoTitle {...props} />, headerShown: true,headerLeft:()=>(  <TouchableOpacity onPress={()=>{navigation.toggleDrawer()}}  >
         <Icon4 name="menu" size={24}  style={{paddingLeft:15}}/>
+        </TouchableOpacity>),  headerRight:()=>(<TouchableOpacity onPress={()=>{navigation.toggleDrawer()}}  >
+        <Icon name="bell" color='#007bff' size={24}  style={{paddingRight:15}}/>
         </TouchableOpacity>)}}/>
         
         <Tab.Screen name="toggleDrawer"  component={Course} options={{tabBarIcon: ({color, size})=>(
