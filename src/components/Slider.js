@@ -7,7 +7,7 @@ const Slider = ({banner}) => {
             data={banner}
             renderItem={({item})=>(
                 <>
-               <Text> {item.id}</Text>
+               <Text> {item.src}</Text>
                 <Image source={{url:item.src}} style={{width:200, height:200}}/>
                 </>
             )}
