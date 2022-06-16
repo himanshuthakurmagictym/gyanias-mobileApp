@@ -24,7 +24,7 @@ const DrawNavigation = ({ navigation, route, options })=>{
         <Drawer.Navigator initialRouteName="Home" drawerContent={props=><CustomDrawer {...props}/>}
         screenOptions={{headerTitleAlign:'center' , headerStyle: { backgroundColor: 'white', 
         }}}>
-            <Drawer.Screen  name="Home" component={TabNavigation} options={{unmountOnBlur: true,headerShown: false, drawerIcon:({color})=>(
+            <Drawer.Screen  name="DrawerHome" component={TabNavigation} options={{unmountOnBlur: true,headerShown: false, drawerIcon:({color})=>(
                     <Icon name="home" size={20} color="black"/>   
             ),title:"home" , headerTitle: props => <LogoTitle {...props} />,  }}/>
 

@@ -1,23 +1,24 @@
 import React from 'react';
 import {Text, View, Image, StyleSheet, TouchableOpacity} from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome';
-import Icon2 from 'react-native-vector-icons/Feather';
+
 const LogoTitle = props => {
   return (
     <View
       style={{
         flex: 1,
         flexDirection: 'row',
-        justifyContent: 'space-between',
+        justifyContent: 'space-around',
         alignItems: 'center',
         width: '100%',
+        
       }}>
-      <Image
+     
+      {/* <Image
         source={require('../../assets/img/logo.png')}
         style={{width: 35, height: 35}}
-      />
-      <Text style={styles.header}>{props.children}</Text>
-      <Text></Text>
+      /> */}
+      <Text style={styles.header} >{props.children}</Text>
+     
     </View>
   );
 };
@@ -28,5 +29,7 @@ const styles = StyleSheet.create({
     fontSize: 26,
     fontWeight: '700',
     color: 'black',
+    justifyContent:"center",
+    alignItems:"center",
   },
 });

@@ -1,14 +1,15 @@
 import React from 'react'
-import {TouchableOpacity, Alert, Text} from 'react-native'
+import {TouchableOpacity, Alert, Text, Platform} from 'react-native'
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Home from '../screens/Home';
 import Profile from '../screens/Profile';
-import Setting from '../screens/Setting';
+import SearchScreen from '../screens/SearchScreen';
 import LogoTitle from '../screens/LogoTitle';
 import  Icon  from 'react-native-vector-icons/FontAwesome'
 import  Icon2  from 'react-native-vector-icons/Fontisto'
 import  Icon3  from 'react-native-vector-icons/AntDesign'
+
 import  Icon4 from 'react-native-vector-icons/Feather'
 import Course from '../screens/Course';
 import { getFocusedRouteNameFromRoute } from '@react-navigation/native';
@@ -36,24 +37,36 @@ const TabNavigation = ({ navigation, route, options })=>{
         <Tab.Navigator initialRouteName="home" screenOptions={{
             tabBarStyle:{backgroundColor:"#007bff"}, tabBarActiveTintColor:'white', tabBarInactiveTintColor:'white', headerTitleAlign:'center', tabBarShowLabel:false,
         }}>     
-        <Tab.Screen name="home" component={Home} options={({route}) =>({tabBarIcon: ({color, size})=>(
+        <Tab.Screen name="Home" component={Home} options={({route}) =>({tabBarIcon: ({color, size})=>(
             <Icon name="home" size={24} color='#fff' />
-            ), headerTitle: props => <LogoTitle {...props} />, headerShown: true, headerLeft:()=>(  <TouchableOpacity onPress={()=>{navigation.toggleDrawer()}}  >
-            <Icon4 name="menu" size={24} color="#fff" style={{paddingLeft:15}}/>
-            </TouchableOpacity>),  headerRight:()=>(<TouchableOpacity onPress={()=>{navigation?.toggleDrawer()}}  >
+            ), headerTitle: props => <LogoTitle {...props} />, headerShown: true, headerLeft:()=>(  <TouchableOpacity onPress={()=>{navigation.toggleDrawer()}} >
+            <Icon4 name="menu" size={24}  style={{paddingLeft:15}}/>
+            </TouchableOpacity>),  headerRight:()=>(
+            <>
+            <TouchableOpacity onPress={()=>{navigation?.toggleDrawer()}}  >
             <Icon name="bell" color='#007bff' size={24}  style={{paddingRight:15}}/>
-            </TouchableOpacity>),})} 
+            </TouchableOpacity> 
+            </>
+            ),})} 
         />  
 
 
         <Tab.Screen name="Course" component={Course} options={{tabBarIcon: ({color, size})=>(
             <Icon2 name="person" size={24} color='#fff' />
             ), headerTitle: props => <LogoTitle {...props} />, headerShown: true,headerLeft:()=>(  <TouchableOpacity onPress={()=>{navigation.toggleDrawer()}}  >
-            <Icon4 name="menu" size={24}  color="#fff" style={{paddingLeft:15}}/>
+            <Icon4 name="menu" size={24}  color="black" style={{paddingLeft:15}}/>
             </TouchableOpacity>),  headerRight:()=>(<TouchableOpacity onPress={()=>{navigation?.toggleDrawer()}}  >
             <Icon name="bell" color='#007bff' size={24}  style={{paddingRight:15}}/>
             </TouchableOpacity>)}}/>
         
+        <Tab.Screen name="Search"  component={SearchScreen} options={{tabBarIcon: ({color, size})=>(
+            <Icon3 name="search1" size={24} color='#fff' />
+            ), headerTitle: props => <LogoTitle {...props} />, headerShown: true,headerLeft:()=>(  <TouchableOpacity onPress={()=>{navigation.toggleDrawer()}}  >
+            <Icon4 name="menu" size={24}  color="black" style={{paddingLeft:15}}/>
+            </TouchableOpacity>),  headerRight:()=>(<TouchableOpacity onPress={()=>{navigation?.toggleDrawer()}}  >
+            <Icon name="bell" color='#007bff' size={24}  style={{paddingRight:15}}/>
+            </TouchableOpacity>)}}/>
+
         <Tab.Screen name="toggleDrawer"  component={Course} options={{tabBarIcon: ({color, size})=>(
             <Icon3 name="menufold" size={24} color='#fff' />
             ), headerTitle: props => <LogoTitle {...props} />, tabBarButton: props => (
