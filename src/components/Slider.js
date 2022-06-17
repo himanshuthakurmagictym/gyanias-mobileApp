@@ -1,15 +1,18 @@
 import React from 'react'
-import {Text, View, Touchable, TouchableOpacity, FlatList, Image} from 'react-native';
+import {Text, View, Touchable, TouchableOpacity, FlatList, Image, useWindowDimensions} from 'react-native';
 const Slider = ({banner}) => {
+  const width = useWindowDimensions().width
   return (
    <>
      <FlatList
             data={banner}
+            horizontal
+            snapToAlignment={'center'}
+            margin={5}
+            
+            decelerationRate={'fast'}
             renderItem={({item})=>(
-                <>
-               <Text> {item.src}</Text>
-                <Image source={{url:item.src}} style={{width:200, height:200}}/>
-                </>
+                <Image source={{uri:item.src}} style={{ width:width-20, height:150, resizeMode:'contain', borderRadius:10, margin:5}}/>
             )}
       />
    </>

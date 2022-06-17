@@ -5,7 +5,7 @@ import Slider from '../components/Slider'
 const Home = ({navigation})=>{
     const {signOut} = useContext(AuthContext) 
 
-    const banner = [{id:1,src:"https://notjustdev-dummy.s3.us-east-2.amazonaws.com/images/products/cleanarchitecture.jpg"},{id:2,src:"https://notjustdev-dummy.s3.us-east-2.amazonaws.com/images/products/cleanarchitecture.jpg"},{id:3,src:"https://notjustdev-dummy.s3.us-east-2.amazonaws.com/images/products/cleanarchitecture.jpg"}]
+    const banner = [{id:1,src:"https://www.thegyanias.com/_next/image?url=%2Fassets%2Fimages%2Fstudent.jpg&w=640&q=75"},{id:2,src:"https://www.thegyanias.com/_next/image?url=%2Fassets%2Fimages%2Fstudent.jpg&w=640&q=75"},{id:3,src:"https://www.thegyanias.com/_next/image?url=%2Fassets%2Fimages%2Fstudent.jpg&w=640&q=75"}]
 
     return (
         <>
