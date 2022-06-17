@@ -35,7 +35,7 @@ const App = () => {
   const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
-  console.log(isDarkMode)
+ 
 
   return (
       <SafeAreaProvider style={backgroundStyle}>
