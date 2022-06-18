@@ -1,12 +1,11 @@
 import React, {useContext} from 'react';
 import {Text, View, Touchable, TouchableOpacity, FlatList, Image, StyleSheet, SafeAreaView, ScrollView} from 'react-native';
-import Class from '../components/SingleDemoClass';
 import {AuthContext} from '../components/context';
 import Slider from '../components/Slider'
 import  Icon  from 'react-native-vector-icons/AntDesign'
 import DemoClass from '../components/DemoClass';
 import AllCourses from '../components/AllCourses';
-
+import AllClasses from '../components/AllClasses';
 const Home = ({navigation})=>{
     const {signOut} = useContext(AuthContext) 
 
@@ -24,10 +23,10 @@ const Home = ({navigation})=>{
           {/* Course Classes */}
           <AllCourses />
           {/* Classes Classes */}
-          <DemoClass />
+          <AllClasses />
 
         {/* Top Teacher */}
-          <DemoClass />
+        
         
           {/* About US
            */}
@@ -43,6 +42,6 @@ export default Home
 const styles = StyleSheet.create({
   container:{
     flex:1,
-    backgroundColor:"#edfafa"
+     backgroundColor:"#edf5fc"
   }
 })

@@ -1,8 +1,9 @@
 import { View, Text, StyleSheet, FlatList, ActivityIndicator} from 'react-native';
 import React, {useEffect, useState} from 'react';
-import Course from './SingleCourse';
+import Course from './Single/SingleCourse';
 import  Icon  from 'react-native-vector-icons/AntDesign';
 import APIs from '../../config'
+import styles from '../style/style'
 const AllCourses = () => {
     const [classes, setDemoClass] = useState("");
     const [Isloading, setIsloading] = useState(true);
@@ -48,21 +49,3 @@ const AllCourses = () => {
 }
 
 export default AllCourses
-const styles = StyleSheet.create({
-    demoClass:{
-      flex:1,
-      marginVertical:10,
-    },
-    DemoClassHeadingContainer:{
-      justifyContent:'space-between',
-      marginHorizontal:10,
-      flexDirection:"row",
-    },
-    DemoClassHeading:{
-      fontSize:16,
-      fontWeight:"bold",
-      color:"black",
-      
-    }
-  
-  })
