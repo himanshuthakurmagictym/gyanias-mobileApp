@@ -9,6 +9,8 @@ import Course from '../screens/Course';
 import Notes from '../screens/Notes';
 import Syllabus from '../screens/Syllabus';
 import Setting from '../screens/Setting';
+import Aboutus from '../screens/Setting';
+
 import CustomDrawer from '../navigation/CustomNavigation';
 import TabNavigation from '../navigation/tabNavigation';
 import  Icon  from 'react-native-vector-icons/FontAwesome'
@@ -61,6 +63,12 @@ const DrawNavigation = ({ navigation, route, options })=>{
             <Drawer.Screen  name="Setting" component={Setting} options={({navigation }) =>({headerShown: true, drawerIcon:({color})=>(
                     <Icon2 name="person" size={20} color="black"/>   
             ), headerTitle: props => <LogoTitle {...props} />,  headerRight:()=>(<TouchableOpacity onPress={()=>{navigation.navigate('Home')}}  >
+            <Icon name="bell" color='#007bff' size={24}  style={{paddingRight:15}}/>
+            </TouchableOpacity>),})}/>
+
+            <Drawer.Screen  name="Aboutus" component={Aboutus} options={({navigation }) =>({headerShown: true, drawerIcon:({color})=>(
+                    <Icon2 name="person" size={20} color="black"/>   
+            ), headerTitle: props => <LogoTitle {...props} />,  headerRight:()=>(<TouchableOpacity onPress={()=>{navigation.navigate('Aboutus')}}  >
             <Icon name="bell" color='#007bff' size={24}  style={{paddingRight:15}}/>
             </TouchableOpacity>),})}/>
 

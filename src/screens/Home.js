@@ -6,6 +6,10 @@ import  Icon  from 'react-native-vector-icons/AntDesign'
 import DemoClass from '../components/DemoClass';
 import AllCourses from '../components/AllCourses';
 import AllClasses from '../components/AllClasses';
+import AllTeachers from '../components/AllTeachers';
+import AboutUs from '../components/AboutUs';
+import ContactUs from '../components/Contactus.js';
+import Clients from '../components/Clients';
 const Home = ({navigation})=>{
     const {signOut} = useContext(AuthContext) 
 
@@ -25,13 +29,15 @@ const Home = ({navigation})=>{
           {/* Classes Classes */}
           <AllClasses />
 
-        {/* Top Teacher */}
+          {/* Top Teacher */}
+           <AllTeachers />
         
-        
-          {/* About US
-           */}
-        {/* What Our Clients Say */}
-        {/* Contact Us */}
+          {/* About US*/}
+          <AboutUs />
+
+          {/* What Our Clients Say */}
+          <Clients />
+       
        
         </ScrollView>     
 )
