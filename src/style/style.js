@@ -31,7 +31,68 @@ const Styles = StyleSheet.create({
     reviewContainer:{alignItems:"center", width:300,height:180,  backgroundColor:"white", margin:5, borderRadius:10, borderWidth:0.3, borderColor:"gray", elevation:3, padding:10, justifyContent:'center'},
     reviewImage:{ width:50, height:50, resizeMode:'contain', borderRadius:50}
     ,reviewname:{fontWeight:"bold", fontSize:18},
-    review:{justifyContent:"center", textAlign:"center"}
+    review:{justifyContent:"center", textAlign:"center"},
+    mainContainer:{justifyContent:"center", alignItems:"center",  flex:1, },
+    subContainer:{justifyContent:"center", alignItems:"center", backgroundColor:"white", width:'100%', paddingVertical:20, elevation:8},
+    inputContainer:{
+      backgroundColor: "#f5fafc",
+      flexDirection: 'row',
+      paddingHorizontal: 5,
+      borderWidth: 0.3,
+      marginLeft:10,
+      marginTop:20,
+      marginBottom:20,
+      marginRight:10,
+      borderRadius:10,
+      width:"80%"},
+      inputs:{
+        flex: 1,
+        marginTop: Platform.OS === 'ios' ? 0 : 0,
+        paddingLeft: 20,
+        color: '#05375a',
+        borderBottomColor:"#000",
+        fontSize:16,
+        alignItems:"center",
+       
+    },
+    inputstextarea:{
+      // flex: 1,
+      // marginTop: Platform.OS === 'ios' ? 0 : 0,
+      paddingLeft: 20,
+      // color: '#05375a',
+      // borderBottomColor:"#000",
+      fontSize:16,
+      // alignItems:"center",
+      
+    },
+    mainHeading:{fontWeight:"bold", fontSize:23},
+    dropdown: {
+      // margin: 16,
+      height: 50,
+    
+      borderBottomColor: 'gray',
+      borderBottomWidth: 0.5,
+    },
+    icon: {
+      marginRight: 5,
+    },
+    placeholderStyle: {
+    
+      fontSize: 16,
+    },
+    selectedTextStyle: {
+      
+      fontSize: 16,
+    },
+    iconStyle: {
+      width: 20,
+      height: 20,
+    },
+    inputSearchStyle: {
+     
+      height: 40,
+      fontSize: 16,
+    },
   })
 
   export default Styles;

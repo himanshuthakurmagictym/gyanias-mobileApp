@@ -27,6 +27,7 @@ const Router = ()=>{
        userToken:null
    }
    const loginReducer =  (prevState, action)=>{
+    
        switch(action.type){
         case 'RETRIEVE_TOKEN':
             return {
@@ -123,7 +124,7 @@ const Router = ()=>{
       userToken = null;
         try{
             userToken =  await AsyncStorage.getItem('userToken');
-            console.log(userToken);  
+            // console.log(userToken);  
         }catch(e){
             console.log(e)
         } 
