@@ -32,7 +32,7 @@ const Styles = StyleSheet.create({
     reviewImage:{ width:50, height:50, resizeMode:'contain', borderRadius:50}
     ,reviewname:{fontWeight:"bold", fontSize:18},
     review:{justifyContent:"center", textAlign:"center"},
-    mainContainer:{justifyContent:"center", alignItems:"center",  flex:1, },
+    mainContainer:{justifyContent:"center", alignItems:"center",  flex:1,  backgroundColor:"#edf5fc"},
     subContainer:{justifyContent:"center", alignItems:"center", backgroundColor:"white", width:'100%', paddingVertical:20, elevation:8},
     inputContainer:{
       backgroundColor: "#f5fafc",
@@ -135,6 +135,10 @@ const Styles = StyleSheet.create({
       width:100,
       height:100,
       borderRadius:50
+    },
+    container:{
+      flex:1,
+      //  backgroundColor:"#edf5fc"
     }
   })
 

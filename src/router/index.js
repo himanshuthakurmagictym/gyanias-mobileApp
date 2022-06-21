@@ -1,6 +1,6 @@
 import React, {useEffect, useState, useMemo, useReducer} from 'react';
 import { View, Text, SafeAreaView, ActivityIndicator, StyleSheet, Alert} from 'react-native'
-import { NavigationContainer } from '@react-navigation/native';
+import { NavigationContainer, DefaultTheme  } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 // import { createDrawerNavigator } from '@react-navigation/drawer';
 import Welcomescreen from '../screens/Welcomescreen';
@@ -65,10 +65,19 @@ const Router = ()=>{
   
 
    const [loginState, dispatch] = useReducer(loginReducer, initialloginState);
-
+   const MyTheme = {
+    ...DefaultTheme,
+    colors: {
+      ...DefaultTheme.colors,
+      primary: 'rgb(255, 45, 85)',
+      background: '#edf5fc',
+      card: 'rgb(255, 255, 255)',
+      text: 'rgb(28, 28, 30)',
+      border: 'rgb(199, 199, 204)',
+      notification: 'rgb(255, 69, 58)',
+    },
+  };
    
-
-
     const authcontext =  useMemo(()=>({
         signIn:async(foundUser)=>{   
           const userToken = String(foundUser.email);
@@ -142,7 +151,7 @@ const Router = ()=>{
 
     return(
         <AuthContext.Provider value={authcontext}>
-            <NavigationContainer>
+            <NavigationContainer theme={MyTheme}>
                 {loginState.userToken !== null?
                   <DrawNavigation />
                 :

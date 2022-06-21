@@ -10,6 +10,7 @@ import AllTeachers from '../components/AllTeachers';
 import AboutUs from '../components/AboutUs';
 import ContactUs from '../components/Contactus.js';
 import Clients from '../components/Clients';
+import Styles from '../style/style';
 const Home = ({navigation})=>{
     const {signOut} = useContext(AuthContext) 
 
@@ -18,7 +19,7 @@ const Home = ({navigation})=>{
  
 
     return (
-        <ScrollView style={styles.container}>
+        <ScrollView style={Styles.container}>
         {/* Slider */}
           <Slider banner={banner}/>
 
@@ -45,9 +46,3 @@ const Home = ({navigation})=>{
 }
 
 export default Home
-const styles = StyleSheet.create({
-  container:{
-    flex:1,
-     backgroundColor:"#edf5fc"
-  }
-})
