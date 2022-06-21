@@ -27,7 +27,7 @@ const Styles = StyleSheet.create({
     ,TeacherImage:{ width:100, height:100, resizeMode:'contain', borderRadius:50 }
     ,TeacherContainer:{alignItems:"center", width:150,height:170,  backgroundColor:"white", margin:5, borderRadius:10, borderWidth:0.3, borderColor:"gray", elevation:3}
     ,TeacherHeading:{fontWeight:"400", fontSize:16, color:"black", marginTop:10},
-    button:{backgroundColor:"#007bff", borderRadius:5, color:"white", padding:10},
+    button:{backgroundColor:"#007bff", borderRadius:20, color:"white", padding:10, width:"50%", alignItems:"center", },
     reviewContainer:{alignItems:"center", width:300,height:180,  backgroundColor:"white", margin:5, borderRadius:10, borderWidth:0.3, borderColor:"gray", elevation:3, padding:10, justifyContent:'center'},
     reviewImage:{ width:50, height:50, resizeMode:'contain', borderRadius:50}
     ,reviewname:{fontWeight:"bold", fontSize:18},
@@ -37,11 +37,11 @@ const Styles = StyleSheet.create({
     inputContainer:{
       backgroundColor: "#f5fafc",
       flexDirection: 'row',
-      paddingHorizontal: 5,
+      paddingHorizontal: 3,
       borderWidth: 0.3,
       marginLeft:10,
-      marginTop:20,
-      marginBottom:20,
+      marginTop:10,
+      marginBottom:10,
       marginRight:10,
       borderRadius:10,
       width:"80%"},
@@ -92,6 +92,44 @@ const Styles = StyleSheet.create({
      
       height: 40,
       fontSize: 16,
+    },
+    error:{
+        color: 'red', 
+        textAlign:'left',
+        paddingLeft:20,
+
+    },
+    panelHeader: {
+      alignItems: 'center',
+    },
+    panelHandle: {
+      width: 40,
+      height: 8,
+      borderRadius: 4,
+      backgroundColor: '#00000040',
+      marginBottom: 10,
+    },
+    panelTitle: {
+      fontSize: 27,
+      height: 35,
+    },
+    panelSubtitle: {
+      fontSize: 14,
+      color: 'gray',
+      height: 30,
+      marginBottom: 10,
+    },
+    panelButton: {
+      padding: 13,
+      borderRadius: 10,
+      backgroundColor: '#FF6347',
+      alignItems: 'center',
+      marginVertical: 7,
+    },
+    panelButtonTitle: {
+      fontSize: 17,
+      fontWeight: 'bold',
+      color: 'white',
     },
   })
 
