@@ -131,6 +131,11 @@ const Styles = StyleSheet.create({
       fontWeight: 'bold',
       color: 'white',
     },
+    profileImage:{
+      width:100,
+      height:100,
+      borderRadius:50
+    }
   })
 
   export default Styles;
