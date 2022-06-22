@@ -10,10 +10,10 @@ import AllTeachers from '../components/AllTeachers';
 import AboutUs from '../components/AboutUs';
 import ContactUs from '../components/Contactus.js';
 import Clients from '../components/Clients';
-import Styles from '../style/style';
+import useGlobalStyles from '../style/style';
 const Home = ({navigation})=>{
     const {signOut} = useContext(AuthContext) 
-
+    const Styles = useGlobalStyles();
     const banner = [{id:1,src:"https://www.thegyanias.com/_next/image?url=%2Fassets%2Fimages%2Fstudent.jpg&w=640&q=75"},{id:2,src:"https://www.thegyanias.com/_next/image?url=%2Fassets%2Fimages%2Fstudent.jpg&w=640&q=75"},{id:3,src:"https://www.thegyanias.com/_next/image?url=%2Fassets%2Fimages%2Fstudent.jpg&w=640&q=75"}];
 
  

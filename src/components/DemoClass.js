@@ -3,10 +3,11 @@ import React, {useEffect, useState} from 'react';
 import Class from '../components/Single/SingleDemoClass';
 import  Icon  from 'react-native-vector-icons/AntDesign';
 import APIs from '../../config'
-import styles from '../style/style'
+import useGlobalStyles from '../style/style'
 const DemoClass = () => {
     const [classes, setDemoClass] = useState("");
     const [Isloading, setIsloading] = useState(true);
+    const Styles = useGlobalStyles();
     useEffect(()=>{
         const getDemo = async()=>{
         try {
@@ -24,7 +25,7 @@ const DemoClass = () => {
 
     if( Isloading){
         return(
-            <View style={styles.isloading}>
+            <View style={Styles.isloading}>
                 <ActivityIndicator size="large"/>
             </View>
         )
@@ -34,10 +35,10 @@ const DemoClass = () => {
     // const classes = [{id:1,src:"https://notjustdev-dummy.s3.us-east-2.amazonaws.com/images/products/cleanarchitecture.jpg", },{id:2,src:"https://notjustdev-dummy.s3.us-east-2.amazonaws.com/images/products/cleanarchitecture.jpg"},{id:3,src:"https://notjustdev-dummy.s3.us-east-2.amazonaws.com/images/products/cleanarchitecture.jpg"}];
 
   return (
-    <View style={styles.demoClass}>
-    <View style={styles.DemoClassHeadingContainer}>
-    <Text style={[styles.DemoClassHeading,{fontSize:15, }]}> {'Demo Classes'.toUpperCase()}</Text>
-    <Text style={styles.DemoClassHeading}>All Class <Icon name="right" size={16} /></Text>
+    <View style={Styles.demoClass}>
+    <View style={Styles.DemoClassHeadingContainer}>
+    <Text style={[Styles.DemoClassHeading,{fontSize:15, }]}> {'Demo Classes'.toUpperCase()}</Text>
+    <Text style={Styles.DemoClassHeading}>All Class <Icon name="right" size={16} /></Text>
     </View>
         <FlatList 
             data={classes}

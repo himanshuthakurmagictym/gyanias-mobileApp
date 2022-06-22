@@ -1,6 +1,6 @@
 import React, {useRef, useState} from  'react';
 import {Text, View, SafeAreaView, TextInput, ScrollView, TouchableOpacity, Image} from 'react-native'
-import Styles from '../style/style';
+import useGlobalStyles from '../style/style';
 import {Controller, useForm} from 'react-hook-form'
 import ImagePicker from 'react-native-image-crop-picker';
 import Animated from 'react-native-reanimated';
@@ -9,6 +9,8 @@ import  Icon  from 'react-native-vector-icons/Entypo';
  const Profile = ()=>{
  const {control, handleSubmit, formState:{errors}} = useForm({mode:"onblur"})
  const[imagepath, setImagepath] =useState("https://www.thegyanias.com/_next/image?url=https%3A%2F%2Fgyaanapi.herokuapp.com%2Fprofile%2Fstudent.jpg&w=256&q=75");
+
+ const Styles = useGlobalStyles();
  const sheetRef = useRef(null);
 const onSubmit = data =>{
     console.log(data)
@@ -77,7 +79,7 @@ const renderContent = () => (
           <Controller control={control} name="firstName" rules={{require:{value:5,message:"firstName should be minimum 5 characters long",}}} render={({field:{onChange,value, onBlur},  fieldState:{error}})=>(
             <>
             <View style={Styles.inputContainer}>
-                   <TextInput placeholder="First Name" name="firstName" style={Styles.inputstextarea} value={value}
+                   <TextInput placeholder="First Name" name="firstName" placeholderTextColor={Styles.textPlaceholder.color} style={Styles.inputstextarea} value={value}
                    onBlur={onBlur} 
                    onChangeText={value => onChange(value)}   />
             </View>
@@ -88,7 +90,7 @@ const renderContent = () => (
            <Controller control={control} name="lastName" rules={{require:{value:5,message:"lastName should be minimum 5 characters long",}}} render={({field:{onChange,value, onBlur},  fieldState:{error}})=>(
             <>
             <View style={Styles.inputContainer}>
-                   <TextInput placeholder="Last Name" name="lastName" style={Styles.inputstextarea} value={value}
+                   <TextInput placeholder="Last Name" placeholderTextColor={Styles.textPlaceholder.color} name="lastName" style={Styles.inputstextarea} value={value}
                    onBlur={onBlur} 
                    onChangeText={value => onChange(value)}   />
             </View>
@@ -99,7 +101,7 @@ const renderContent = () => (
         <Controller control={control} name="phone" rules={{require:{value:5,message:"phone should be minimum 5 characters long",}}} render={({field:{onChange,value, onBlur},  fieldState:{error}})=>(
                     <>
                     <View style={Styles.inputContainer}>
-                        <TextInput placeholder="Phone" name="phone" style={Styles.inputstextarea} value={value}
+                        <TextInput placeholder="Phone" placeholderTextColor={Styles.textPlaceholder.color} name="phone" style={Styles.inputstextarea} value={value}
                         onBlur={onBlur} 
                         onChangeText={value => onChange(value)}   />
                     </View>
@@ -111,7 +113,7 @@ const renderContent = () => (
             <Controller control={control} name="email" rules={{require:{value:5,message:"email should be minimum 5 characters long",}}} render={({field:{onChange,value, onBlur},  fieldState:{error}})=>(
                     <>
                     <View style={Styles.inputContainer}>
-                        <TextInput placeholder="Email" name="email" style={Styles.inputstextarea} value={value}
+                        <TextInput placeholder="Email" placeholderTextColor={Styles.textPlaceholder.color} name="email" style={Styles.inputstextarea} value={value}
                         onBlur={onBlur} 
                         onChangeText={value => onChange(value)}   />
                     </View>
@@ -122,7 +124,7 @@ const renderContent = () => (
                     <Controller control={control} name="username" rules={{require:{value:5,message:"username should be minimum 5 characters long",}}} render={({field:{onChange,value, onBlur},  fieldState:{error}})=>(
                     <>
                     <View style={Styles.inputContainer}>
-                        <TextInput placeholder="username" name="username" style={Styles.inputstextarea} value={value}
+                        <TextInput placeholder="username" placeholderTextColor={Styles.textPlaceholder.color} name="username" style={Styles.inputstextarea} value={value}
                         onBlur={onBlur} 
                         onChangeText={value => onChange(value)}   />
                     </View>
@@ -134,7 +136,7 @@ const renderContent = () => (
                 <Controller control={control} name="address" rules={{require:{value:20,message:"address should be minimum 20 characters long",}}} render={({field:{onChange,value, onBlur},  fieldState:{error}})=>(
                     <>
                     <View style={Styles.inputContainer}>
-                        <TextInput placeholder="address" name="address" style={Styles.inputstextarea} value={value}
+                        <TextInput placeholder="address" placeholderTextColor={Styles.textPlaceholder.color} name="address" style={Styles.inputstextarea} value={value}
                         onBlur={onBlur} 
                         onChangeText={value => onChange(value)}   />
                     </View>
@@ -145,7 +147,7 @@ const renderContent = () => (
                     <Controller control={control} name="city" rules={{require:{value:2,message:"city should be minimum 20 characters long",}}} render={({field:{onChange,value, onBlur},  fieldState:{error}})=>(
                     <>
                     <View style={Styles.inputContainer}>
-                        <TextInput placeholder="city" name="city" style={Styles.inputstextarea} value={value}
+                        <TextInput placeholder="city" placeholderTextColor={Styles.textPlaceholder.color} name="city" style={Styles.inputstextarea} value={value}
                         onBlur={onBlur} 
                         onChangeText={value => onChange(value)}   />
                     </View>
@@ -156,7 +158,7 @@ const renderContent = () => (
                     <Controller control={control} name="country" rules={{require:{value:2,message:"country should be minimum 20 characters long",}}} render={({field:{onChange,value, onBlur},  fieldState:{error}})=>(
                     <>
                     <View style={Styles.inputContainer}>
-                        <TextInput placeholder="country" name="country" style={Styles.inputstextarea} value={value}
+                        <TextInput placeholder="country"  placeholderTextColor={Styles.textPlaceholder.color} name="country" style={Styles.inputstextarea} value={value}
                         onBlur={onBlur} 
                         onChangeText={value => onChange(value)}   />
                     </View>
@@ -179,7 +181,7 @@ const renderContent = () => (
                     <Controller control={control} name="states" rules={{require:{value:2,message:"states should be minimum 20 characters long",}}} render={({field:{onChange,value, onBlur},  fieldState:{error}})=>(
                     <>
                     <View style={Styles.inputContainer}>
-                        <TextInput placeholder="state" name="states" style={Styles.inputstextarea} value={value}
+                        <TextInput placeholder="state" placeholderTextColor={Styles.textPlaceholder.color} name="states" style={Styles.inputstextarea} value={value}
                         onBlur={onBlur} 
                         onChangeText={value => onChange(value)}   />
                     </View>

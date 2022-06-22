@@ -1,6 +1,6 @@
 import { View, Text, TouchableOpacity, TextInput, SafeAreaView} from 'react-native'
 import React, {useState} from 'react'
-import Styles from '../style/style'
+import useGlobalStyles from '../style/style'
 import { Dropdown } from 'react-native-element-dropdown';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import {useForm, Controller} from 'react-hook-form';
@@ -15,7 +15,7 @@ const data = [
 const Support = () => {
   const [Dropdownvalue, setDropdownvalue] = useState(1);
   const {control, handleSubmit,  formState: {errors, isValid}} =useForm({mode: 'onBlur'})
-
+  const Styles = useGlobalStyles();
   const onSubmit = (data)=>{
     Object.assign(data, {Dropdown: Dropdownvalue});
     // const finalobject = {data, ...Dropdownvalue};
@@ -57,7 +57,7 @@ const Support = () => {
               <>
                 <View style={Styles.inputContainer}>
                        <TextInput numberOfLines={4} 
-                       multiline={true} placeholder="Message" name="message" style={Styles.inputstextarea} value={value}
+                       multiline={true} placeholder="Message" placeholderTextColor={Styles.textPlaceholder.color} name="message" style={Styles.inputstextarea} value={value}
                        onBlur={onBlur} 
                        onChangeText={value => onChange(value)}   />
                 </View>

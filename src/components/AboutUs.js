@@ -1,10 +1,11 @@
 import { View, Text,  TouchableOpacity } from 'react-native'
 import React from 'react'
-import Styles from '../style/style'
+import useGlobalStyles from '../style/style'
 import { useNavigation, useTheme } from '@react-navigation/native';
 
 const AboutUs = () => {
 const navigation = useNavigation(); 
+const Styles = useGlobalStyles();
 const{colors} = useTheme();
   return (
     <View style={{

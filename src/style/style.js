@@ -1,7 +1,9 @@
 
-
+import React, {useEffect, useState, useMemo} from 'react';
 import {StyleSheet} from 'react-native';
-const Styles = StyleSheet.create({
+import {useTheme } from '@react-navigation/native';
+
+const getGlobalStyles =(props) => StyleSheet.create({
     cardContainer:{ alignItems:"center",   backgroundColor:"white", margin:5, borderRadius:10, borderWidth:0.3, borderColor:"gray", elevation:3},
     cardImage:{ width:250, height:150, resizeMode:'stretch', borderTopLeftRadius:10, borderTopRightRadius:10 },
     cardHeading:{fontWeight:"400", fontSize:16, color:"black", marginVertical:10},
@@ -26,14 +28,15 @@ const Styles = StyleSheet.create({
     }
     ,TeacherImage:{ width:100, height:100, resizeMode:'contain', borderRadius:50 }
     ,TeacherContainer:{alignItems:"center", width:150,height:170,  backgroundColor:"white", margin:5, borderRadius:10, borderWidth:0.3, borderColor:"gray", elevation:3}
-    ,TeacherHeading:{fontWeight:"400", fontSize:16, color:"black", marginTop:10},
+    ,TeacherHeading:{fontWeight:"800", fontSize:16, color:"black", marginTop:10},
     button:{backgroundColor:"#007bff", borderRadius:20, color:"white", padding:10, width:"50%", alignItems:"center", },
     reviewContainer:{alignItems:"center", width:300,height:180,  backgroundColor:"white", margin:5, borderRadius:10, borderWidth:0.3, borderColor:"gray", elevation:3, padding:10, justifyContent:'center'},
     reviewImage:{ width:50, height:50, resizeMode:'contain', borderRadius:50}
     ,reviewname:{fontWeight:"bold", fontSize:18},
-    review:{justifyContent:"center", textAlign:"center"},
+    review:{justifyContent:"center", textAlign:"center", color:props.colors.text},
     mainContainer:{justifyContent:"center", alignItems:"center",  flex:1,  backgroundColor:"#edf5fc"},
-    subContainer:{justifyContent:"center", alignItems:"center", backgroundColor:"white", width:'100%', paddingVertical:20, elevation:8},
+    subContainer:{justifyContent:"center", alignItems:"center", backgroundColor:"white", width:'100%', paddingVertical:20, elevation:8, color:props.colors.text},
+    TeacherPra:{color:props.colors.text},
     inputContainer:{
       backgroundColor: "#f5fafc",
       flexDirection: 'row',
@@ -45,6 +48,7 @@ const Styles = StyleSheet.create({
       marginRight:10,
       borderRadius:10,
       width:"80%"},
+      
       inputs:{
         flex: 1,
         marginTop: Platform.OS === 'ios' ? 0 : 0,
@@ -59,7 +63,7 @@ const Styles = StyleSheet.create({
       // flex: 1,
       // marginTop: Platform.OS === 'ios' ? 0 : 0,
       paddingLeft: 20,
-      // color: '#05375a',
+      color:props.colors.text,
       // borderBottomColor:"#000",
       fontSize:16,
       // alignItems:"center",
@@ -72,35 +76,43 @@ const Styles = StyleSheet.create({
       width:"100%",
       borderBottomColor: 'gray',
       borderBottomWidth: 0.5,
+      color:props.colors.text,
+   
     },
     icon: {
       marginRight: 5,
     },
     placeholderStyle: {
-    
+      color:props.colors.text,
       fontSize: 16,
+      
     },
     selectedTextStyle: {
-      
+      color:props.colors.text,
+    
       fontSize: 16,
     },
     iconStyle: {
       width: 20,
       height: 20,
+      color:props.colors.text
     },
     inputSearchStyle: {
-     
+      color:props.colors.text,
       height: 40,
+
       fontSize: 16,
     },
     error:{
         color: 'red', 
         textAlign:'left',
         paddingLeft:20,
+        color:props.colors.text
 
     },
     panelHeader: {
       alignItems: 'center',
+      color:props.colors.text
     },
     panelHandle: {
       width: 40,
@@ -139,7 +151,17 @@ const Styles = StyleSheet.create({
     container:{
       flex:1,
       //  backgroundColor:"#edf5fc"
-    }
+    },
+    textPlaceholder:{color:props.colors.text}
   })
 
+
+  const Styles =()=>{
+    const { colors } = useTheme();
+  
+    // We only want to recompute the stylesheet on changes in color.
+    const styles = useMemo(() => getGlobalStyles({ colors }), [colors]);
+  
+    return styles;
+  }
   export default Styles;
