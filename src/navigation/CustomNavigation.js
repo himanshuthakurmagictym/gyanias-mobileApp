@@ -5,8 +5,10 @@ import  Icon  from 'react-native-vector-icons/MaterialCommunityIcons'
 import  Icon2  from 'react-native-vector-icons/Fontisto'
 import LinearGradient from 'react-native-linear-gradient';
 import {AuthContext} from '../components/context';
+import useGlobalStyles from '../style/style'
 const CustomNavigation = (props)=>{
   const {signOut} = useContext(AuthContext) 
+  const Styles = useGlobalStyles();
     return(
       <View style={{flex:1}}>
        <View style={{flex:3}}>
@@ -29,7 +31,7 @@ const CustomNavigation = (props)=>{
       <View style={{flex:1, justifyContent:'flex-end'}}>
           <TouchableOpacity onPress={()=>{signOut()}} style={{flexDirection:"row", paddingLeft:20, paddingBottom:20, alignItems:"center"}} >
             <Icon name="logout" size={24} color='black' />
-            <Text>Logout</Text>
+            <Text style={Styles.textPlaceholder}>Logout</Text>
           </TouchableOpacity>
       </View>
       </View>
