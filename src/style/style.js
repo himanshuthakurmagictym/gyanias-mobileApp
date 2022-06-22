@@ -152,7 +152,8 @@ const getGlobalStyles =(props) => StyleSheet.create({
       flex:1,
       //  backgroundColor:"#edf5fc"
     },
-    textPlaceholder:{color:props.colors.text}
+    textPlaceholder:{color:props.colors.text},
+    notificationContainer:{flex:1, flexDirection:"row", alignItems:"center", justifyContent:"space-between", backgroundColor:"white", borderRadius:3, marginHorizontal:5, padding:10, elevation:3}
   })
 
 
