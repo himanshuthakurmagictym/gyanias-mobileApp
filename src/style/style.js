@@ -25,6 +25,14 @@ const getGlobalStyles =(props) => StyleSheet.create({
       fontWeight:"bold",
       color:"black",
       
+    },
+    DemoClassDescription:{
+      justifyContent:"center",
+      color:props.colors.text,
+    },
+    DemoVideo:{
+      justifyContent:"center",
+      alignItems:"center",
     }
     ,TeacherImage:{ width:100, height:100, resizeMode:'contain', borderRadius:50 }
     ,TeacherContainer:{alignItems:"center", width:150,height:170,  backgroundColor:"white", margin:5, borderRadius:10, borderWidth:0.3, borderColor:"gray", elevation:3}
@@ -150,8 +158,17 @@ const getGlobalStyles =(props) => StyleSheet.create({
     },
     container:{
       flex:1,
+      // alignItems:"center",
+      alignContent:"center"
+      // color:props.colors.text,
+
       //  backgroundColor:"#edf5fc"
     },
+    backgroundVideo: {
+     flex:1
+    },
+    aboutus:{ fontWeight:"bold",justifyContent:"center", alignItems:"center",fontSize:20,  color:props.colors.text},
+    aboutusdiscription:{padding:10, justifyContent:"center", textAlign:"justify", color:props.colors.text },
     textPlaceholder:{color:props.colors.text},
     notificationContainer:{flex:1, flexDirection:"row", alignItems:"center", justifyContent:"space-between", backgroundColor:"white", borderRadius:3, marginHorizontal:5, padding:10, elevation:3}
   })

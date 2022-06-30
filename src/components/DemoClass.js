@@ -1,6 +1,6 @@
 import { View, Text, StyleSheet, FlatList, ActivityIndicator} from 'react-native';
 import React, {useEffect, useState} from 'react';
-import Class from '../components/Single/SingleDemoClass';
+import ClassDemo from '../components/Single/SingleDemoClass';
 import  Icon  from 'react-native-vector-icons/AntDesign';
 import APIs from '../../config'
 import useGlobalStyles from '../style/style'
@@ -48,9 +48,9 @@ const DemoClass = () => {
             decelerationRate={'fast'}
          
             renderItem={({item})=>(
-               <Class classes={item}/>
+               <ClassDemo classes={item}/>
             )}
-  />
+        />
   </View>
   )
 }

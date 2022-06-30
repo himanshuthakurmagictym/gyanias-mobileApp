@@ -12,7 +12,7 @@ import com.facebook.soloader.SoLoader;
 import com.gyanias.newarchitecture.MainApplicationReactNativeHost;
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
-
+// import com.brentvatne.react.ReactVideoPackage;
 public class MainApplication extends Application implements ReactApplication {
 
   private final ReactNativeHost mReactNativeHost =
@@ -21,6 +21,14 @@ public class MainApplication extends Application implements ReactApplication {
         public boolean getUseDeveloperSupport() {
           return BuildConfig.DEBUG;
         }
+
+        // @Override
+        // protected List<ReactPackage> getPackages() {
+        //     return Arrays.asList(
+        //             new MainReactPackage(),
+        //             new ReactVideoPackage()
+        //     );
+        // }
 
         @Override
         protected List<ReactPackage> getPackages() {

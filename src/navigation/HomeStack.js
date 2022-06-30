@@ -10,6 +10,7 @@ import Notes from '../screens/Notes';
 import Syllabus from '../screens/Syllabus';
 import Search from '../screens/SearchScreen';
 import Notification from '../screens/Notification';
+import DemoDetails from '../screens/DemoDetails';
 import Aboutus from '../screens/Aboutus';
 import Support from '../screens/Support';
 import  Icon  from 'react-native-vector-icons/FontAwesome'
@@ -47,6 +48,7 @@ const options= ({navigation }) =>({headerTitle: props => <LogoTitle {...props} /
         <Stack.Screen component={Notification} name="Notification" options={options}/>
         <Stack.Screen component={Aboutus} name="Aboutus" options={options}/>
         <Stack.Screen component={Support} name="Support"options={options} />
+        <Stack.Screen component={DemoDetails} name="DemoDetails" />
     </Stack.Navigator>
   )
 }
