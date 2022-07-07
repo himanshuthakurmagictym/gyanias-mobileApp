@@ -8,7 +8,7 @@ const SingleDemoClass = ({classes}) => {
   const navigation = useNavigation(); 
   return (
     <TouchableOpacity onPress={()=> navigation.navigate("DemoDetails",{
-      id : 45,
+      id : classes._id,
     })}>
     <View style={Styles.cardContainer} >
       <Image source={{uri:APIs.base_url_home+classes.demoImage.replace(/\\/g,'\/')}} style={Styles.cardImage}/>

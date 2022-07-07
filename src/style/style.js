@@ -170,9 +170,19 @@ const getGlobalStyles =(props) => StyleSheet.create({
     aboutus:{ fontWeight:"bold",justifyContent:"center", alignItems:"center",fontSize:20,  color:props.colors.text},
     aboutusdiscription:{padding:10, justifyContent:"center", textAlign:"justify", color:props.colors.text },
     textPlaceholder:{color:props.colors.text},
-    notificationContainer:{flex:1, flexDirection:"row", alignItems:"center", justifyContent:"space-between", backgroundColor:"white", borderRadius:3, marginHorizontal:5, padding:10, elevation:3}
+    notificationContainer:{flex:1, flexDirection:"row", alignItems:"center", justifyContent:"space-between", backgroundColor:"white", borderRadius:3, marginHorizontal:5, padding:10, elevation:3},
+    DemoClassDetailHeading:{
+      fontSize:25,
+      fontWeight:"500",
+      color:props.colors.text,
+      textAlign:"center"
+    },
+    DemoClassDetailDesc:{
+      padding:10,
+      color:props.colors.text,
+      textAlign:"justify"
+    }
   })
-
 
   const Styles =()=>{
     const { colors } = useTheme();
